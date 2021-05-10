@@ -1,2 +1,6 @@
-# Breakout-Replica
-A twist on the original Atari game Breakout.
+# Breakout
+A twist on the classic Atari game Breakout.
+
+Written in C# using the Monogame Framework.
+
+Author: Kristopher John Randle
