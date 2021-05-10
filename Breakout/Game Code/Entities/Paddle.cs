@@ -14,14 +14,14 @@ namespace Breakout.Game_Code.Entities
         {
             _oldKeyboardState = new KeyboardState();
             this.Direction = new Vector2(0,0);
-            this.Speed = 3;
+            this.Speed = 5;
             this.Texture = GameContent.PaddleTexture;
             this.Location = new Vector2((BreakoutGame.WINDOW_WIDTH/2)-this.Texture.Width/2, 725);
         }
 
         private void CalculateVelocity()
         {
-            KeyboardState _newKeyboardState = Keyboard.GetState();
+            KeyboardState newKeyboardState = Keyboard.GetState();
 
             if (_oldKeyboardState.IsKeyUp(Keys.Right))
             {
@@ -32,19 +32,35 @@ namespace Breakout.Game_Code.Entities
                 this.Direction = new Vector2(0, 0);
             }
 
-            if (_newKeyboardState.IsKeyDown(Keys.Right))
+            if (newKeyboardState.IsKeyDown(Keys.Right))
             {
                 this.Direction = new Vector2(1, 0);
             }
-            if (_newKeyboardState.IsKeyDown(Keys.Left))
+            if (newKeyboardState.IsKeyDown(Keys.Left))
             {
                 this.Direction = new Vector2(-1, 0);
             }
 
-            _oldKeyboardState = _newKeyboardState;
+            _oldKeyboardState = newKeyboardState;
 
             this.Velocity = Speed * Direction;
 
+        }
+
+        private void Move()
+        {
+            Vector2 lastLocation = this.Location;
+
+            this.Location += Velocity;
+
+            if(this.Location.X < 10)
+            {
+                this.Location = lastLocation;
+            }
+            if(this.Location.X > BreakoutGame.WINDOW_WIDTH - this.Texture.Width - 10)
+            {
+                this.Location = lastLocation;
+            }
         }
 
         /// <summary>
@@ -54,7 +70,7 @@ namespace Breakout.Game_Code.Entities
         public void Update(GameTime gameTime)
         {
             this.CalculateVelocity();
-            this.Location += Velocity;
+            this.Move();
         }
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Documents/Programming/Personal/C#/Breakout/Content/breakout_assets/background.png</SourceFile>
-  <SourceTime>2021-05-10T22:03:24.4867463+01:00</SourceTime>
-  <DestFile>D:/Documents/Programming/Personal/C#/Breakout/Content/bin/DesktopGL/Content/breakout_assets/background.xnb</DestFile>
-  <DestTime>2021-05-10T22:05:04.1446026+01:00</DestTime>
+  <SourceFile>D:/Documents/Programming/Personal/C#/Breakout/Breakout/Content/breakout_assets/background.png</SourceFile>
+  <SourceTime>2021-05-10T23:12:36.0958429+01:00</SourceTime>
+  <DestFile>D:/Documents/Programming/Personal/C#/Breakout/Breakout/Content/bin/DesktopGL/Content/breakout_assets/background.xnb</DestFile>
+  <DestTime>2021-05-10T23:15:14.1703907+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "McTCMl3q7OP8j5EfotJw27gVZdqmwJtPmCVYy6OMGEt1dFtn4ywkscdJTNbfj7vNpMRMMSlzCMygUsgQfzpN4Q==",
+  "dgSpecHash": "3b/8dtmfU0zsOcI6idtBJdNRns2++EvW2CQ6horUCGgEJ5/fZEvUs4iWp/fiOazXt86jYJztZ7BiMpVv9ksIpg==",
   "success": true,
-  "projectFilePath": "D:\\Documents\\Programming\\Personal\\C#\\Breakout\\Breakout.csproj",
+  "projectFilePath": "D:\\Documents\\Programming\\Personal\\C#\\Breakout\\Breakout\\Breakout.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\krist\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
     "C:\\Users\\krist\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"

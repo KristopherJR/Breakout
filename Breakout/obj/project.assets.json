@@ -179,11 +179,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documents\\Programming\\Personal\\C#\\Breakout\\Breakout.csproj",
+      "projectUniqueName": "D:\\Documents\\Programming\\Personal\\C#\\Breakout\\Breakout\\Breakout.csproj",
       "projectName": "Breakout",
-      "projectPath": "D:\\Documents\\Programming\\Personal\\C#\\Breakout\\Breakout.csproj",
+      "projectPath": "D:\\Documents\\Programming\\Personal\\C#\\Breakout\\Breakout\\Breakout.csproj",
       "packagesPath": "C:\\Users\\krist\\.nuget\\packages\\",
-      "outputPath": "D:\\Documents\\Programming\\Personal\\C#\\Breakout\\obj\\",
+      "outputPath": "D:\\Documents\\Programming\\Personal\\C#\\Breakout\\Breakout\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\krist\\AppData\\Roaming\\NuGet\\NuGet.Config",
