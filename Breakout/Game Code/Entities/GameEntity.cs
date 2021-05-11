@@ -11,7 +11,7 @@ namespace Breakout.Game_Code.Entities
     {
         #region FIELDS
         private string _uName;
-        private string _uID;
+        private int _uID;
 
         private Texture2D _texture;
 
@@ -22,8 +22,8 @@ namespace Breakout.Game_Code.Entities
         #endregion
 
         #region PROPERTIES
-        public string UName { get => _uName; }
-        public string UID { get => _uID; }
+        public string UName { get => _uName; set => _uName = value; }
+        public int UID { get => _uID; set => _uID = value; }
         public Texture2D Texture { get => _texture; set => _texture = value; }
         public Vector2 Location { get => _location; set => _location = value; }
         public Vector2 Velocity { get => _velocity; set => _velocity = value; }
@@ -37,10 +37,14 @@ namespace Breakout.Game_Code.Entities
                                        this.Texture.Width,
                                        this.Texture.Height); } // get method
         }
-    
-        #endregion
 
-        public bool CheckHitBoxCollision(GameEntity collidee)
+        #endregion
+        /// <summary>
+        /// Checks if the current IGameEntity has collided with the collidee provided.
+        /// </summary>
+        /// <param name="collidee">The other IGameEntity to check a collision with.</param>
+        /// <returns>True if there's a collision, else false.</returns>
+        public bool CheckHitBoxCollision(IGameEntity collidee)
         {
             if(this.HitBox.Intersects(collidee.HitBox))
             {

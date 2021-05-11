@@ -9,12 +9,21 @@ namespace Breakout.Game_Code.Entities
 {
     public class Ball : GameEntity, IUpdatable
     {
+        #region FIELDS
+        private List<IGameEntity> _gameEntities;
+        #endregion
         public Ball()
         {
+            this.UName = "Ball";
             this.Direction = new Vector2(1, 1);
             this.Speed = 3;
             this.Texture = GameContent.BallTexture;
-            this.Location = new Vector2((BreakoutGame.WINDOW_WIDTH / 2) - this.Texture.Width / 2, 725);
+            this.Location = new Vector2((BreakoutGame.WINDOW_WIDTH / 2) - this.Texture.Width / 2, 400);
+        }
+
+        public void PopulateCollidables(List<IGameEntity> gameEntities)
+        {
+            _gameEntities = gameEntities;
         }
 
         private void CalculateVelocity()
@@ -42,6 +51,20 @@ namespace Breakout.Game_Code.Entities
             this.Velocity = Speed * Direction;
         }
 
+        private void CheckCollisions()
+        {
+            foreach(IGameEntity g in _gameEntities)
+            {
+                if(g != this)
+                {
+                    if (this.CheckHitBoxCollision(g))
+                    {
+                        this.Direction = new Vector2(this.Direction.X, -this.Direction.Y);
+                    }
+                }      
+            }
+        }
+
         /// <summary>
         /// Moves the object.
         /// </summary>
@@ -56,8 +79,9 @@ namespace Breakout.Game_Code.Entities
         /// <param name="gameTime">A snapshot of the GameTime.</param>
         public void Update(GameTime gameTime)
         {
-            this.CalculateVelocity();
+            this.CalculateVelocity();  
             this.Move();
+            this.CheckCollisions();
         }
     }
 }

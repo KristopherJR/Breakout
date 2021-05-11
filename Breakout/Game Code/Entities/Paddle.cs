@@ -12,6 +12,7 @@ namespace Breakout.Game_Code.Entities
         private KeyboardState _oldKeyboardState;
         public Paddle()
         {
+            this.UName = "Paddle";
             _oldKeyboardState = new KeyboardState();
             this.Direction = new Vector2(0,0);
             this.Speed = 5;
