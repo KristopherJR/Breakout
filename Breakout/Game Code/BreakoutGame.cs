@@ -19,6 +19,7 @@ namespace Breakout.Game_Code
 
         private List<IGameEntity> _gameEntities;
 
+        private Ball _ball;
         private Paddle _paddle;
         #endregion
 
@@ -28,8 +29,8 @@ namespace Breakout.Game_Code
             
             Content.RootDirectory = "Content/breakout_assets";
             IsMouseVisible = true;
-            _gameEntities = new List<IGameEntity>();
-            
+
+            _gameEntities = new List<IGameEntity>(); 
         }
 
         protected override void Initialize()
@@ -46,7 +47,9 @@ namespace Breakout.Game_Code
             GameContent.LoadContent(Content);
 
             _paddle = new Paddle();
+            _ball = new Ball();
             _gameEntities.Add(_paddle);
+            _gameEntities.Add(_ball);
         }
 
         protected override void Update(GameTime gameTime)
@@ -57,6 +60,21 @@ namespace Breakout.Game_Code
             foreach(IUpdatable u in _gameEntities)
             {
                 u.Update(gameTime);
+            }
+
+            for(int i=0; i < _gameEntities.Count-1; i++)
+            {
+                for(int j=1; j < _gameEntities.Count; j++)
+                {
+                    if((_gameEntities[i] as GameEntity).CheckHitBoxCollision(_gameEntities[j] as GameEntity))
+                    {
+                        if(_gameEntities[j] is Ball)
+                        {
+                            _gameEntities[j].Direction = new Vector2(_gameEntities[j].Direction.X, -_gameEntities[j].Direction.Y);
+                        }
+                    }
+                }
+                
             }
 
             base.Update(gameTime);

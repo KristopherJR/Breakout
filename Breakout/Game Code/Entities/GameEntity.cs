@@ -29,7 +29,28 @@ namespace Breakout.Game_Code.Entities
         public Vector2 Velocity { get => _velocity; set => _velocity = value; }
         public Vector2 Direction { get => _direction; set => _direction = value; }
         public int Speed { get => _speed; set => _speed = value; }
+
+        public Rectangle HitBox
+        {
+            get { return new Rectangle((int)this.Location.X,
+                                       (int)this.Location.Y,
+                                       this.Texture.Width,
+                                       this.Texture.Height); } // get method
+        }
+    
         #endregion
+
+        public bool CheckHitBoxCollision(GameEntity collidee)
+        {
+            if(this.HitBox.Intersects(collidee.HitBox))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         /// <summary>
         /// Draws this GameEntity onto the provided SpriteBatch parameter.

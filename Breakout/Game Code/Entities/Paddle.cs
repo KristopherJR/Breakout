@@ -47,6 +47,9 @@ namespace Breakout.Game_Code.Entities
 
         }
 
+        /// <summary>
+        /// Moves the object.
+        /// </summary>
         private void Move()
         {
             Vector2 lastLocation = this.Location;
