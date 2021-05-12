@@ -11,6 +11,14 @@ namespace Breakout.Game_Code.Entities
     {
         #region FIELDS
         private List<IGameEntity> _gameEntities;
+        private bool _flagLifeLost;
+        #endregion
+        #region PROPERTIES
+        public bool FlagLifeLost
+        {
+            get { return _flagLifeLost; }
+            set { _flagLifeLost = value; }
+        }
         #endregion
         public Ball()
         {
@@ -19,6 +27,7 @@ namespace Breakout.Game_Code.Entities
             this.Speed = 2.0f;
             this.Texture = GameContent.BallTexture;
             this.Location = new Vector2((BreakoutGame.WINDOW_WIDTH / 2) - this.Texture.Width / 2, 400);
+            this.FlagLifeLost = false;
         }
 
         public void PopulateCollidables(List<IGameEntity> gameEntities)
@@ -46,6 +55,7 @@ namespace Breakout.Game_Code.Entities
             if (this.Location.Y >= BreakoutGame.WINDOW_HEIGHT - this.Texture.Height - 10) // Past Bottom
             {
                 this.Direction = new Vector2(this.Direction.X, -1);
+                this.FlagLifeLost = true;
             }
 
             this.Velocity = Speed * Direction;

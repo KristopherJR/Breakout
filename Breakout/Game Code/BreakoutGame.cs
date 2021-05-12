@@ -18,6 +18,7 @@ namespace Breakout.Game_Code
         public const int BRICK_ROWS = 6;
         public const int BRICK_COLUMNS = 10;
 
+        private int _lives;
         private int _score;
 
         private GraphicsDeviceManager _graphics;
@@ -36,8 +37,9 @@ namespace Breakout.Game_Code
             Content.RootDirectory = "Content/breakout_assets";
             IsMouseVisible = true;
 
-            _gameEntities = new List<IGameEntity>(); 
-           
+            _gameEntities = new List<IGameEntity>();
+            _lives = 5;
+
         }
 
         protected override void Initialize()
@@ -47,7 +49,9 @@ namespace Breakout.Game_Code
             _graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
             _graphics.ApplyChanges();
 
+
             _score = 0;
+            
         }
 
         protected override void LoadContent()
@@ -73,6 +77,13 @@ namespace Breakout.Game_Code
 
             _ball.PopulateCollidables(_gameEntities);
 
+            for (int i=0; i < _lives; i++)
+            {
+                IGameEntity newHeart = new Heart();
+                newHeart.Location = new Vector2(995 + ((GameContent.HeartTexture.Width + 5) * i), 24);
+                _gameEntities.Add(newHeart);                       
+            }
+
             this.SetIDs();
 
             foreach(IGameEntity g in _gameEntities)
@@ -89,6 +100,7 @@ namespace Breakout.Game_Code
             int ballCount = 1;
             int paddleCount = 1;
             int brickCount = 1;
+            int heartCount = 1;
 
             foreach (IGameEntity g in _gameEntities)
             {
@@ -104,13 +116,19 @@ namespace Breakout.Game_Code
                     g.UName += paddleCount;
                     paddleCount++;
                 }
-
                 if (g is Brick)
                 {
                     g.UID = brickCount;
                     g.UName += brickCount;
                     //System.Diagnostics.Debug.WriteLine(g.UName);
                     brickCount++;
+                }
+                if (g is Heart)
+                {
+                    g.UID = heartCount;
+                    g.UName += heartCount;
+                    //System.Diagnostics.Debug.WriteLine(g.UName);
+                    heartCount++;
                 }
             }
         }
@@ -133,8 +151,26 @@ namespace Breakout.Game_Code
                     {
                         _score += (_gameEntities[i] as Brick).ScoreValue;
                         _gameEntities.Remove(_gameEntities[i]);
+                    }
+                }
+                if(_gameEntities[i] is Ball)
+                {
+                    if ((_gameEntities[i] as Ball).FlagLifeLost) // check if the player lost a life
+                    {
+                        (_gameEntities[i] as Ball).FlagLifeLost = false; // reset flag
 
-                        
+                        for(int j=0; j < _gameEntities.Count; j++)
+                        {
+                            if(_gameEntities[j] is Heart)
+                            {
+                                if(_gameEntities[j].UName == "Heart" + _lives) // remove the top layer heart
+                                {
+                                    _gameEntities.RemoveAt(j);
+                                    _lives--;
+                                    break;
+                                }
+                            }
+                        }
                     }
                 }
             }
