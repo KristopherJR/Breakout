@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,15 @@ namespace Breakout.GameCode
 
         public static SpriteFont GameFont;
 
+        public static SoundEffect Bounce1;
+        public static SoundEffect Bounce2;
+        public static SoundEffect Chime1;
+        public static SoundEffect Chime2;
+        public static SoundEffect GameOverTrumpets;
+        public static SoundEffect GameOverVoice;
+        public static SoundEffect LifeLoss;
+        public static SoundEffect Victory;
+
         #endregion
         public static void LoadContent(ContentManager contentManager)
         {
@@ -41,6 +51,15 @@ namespace Breakout.GameCode
             HeartTexture = contentManager.Load<Texture2D>("heart");
 
             GameFont = contentManager.Load<SpriteFont>("Score");
+
+            Bounce1 = contentManager.Load<SoundEffect>("bounce_1");
+            Bounce2 = contentManager.Load<SoundEffect>("bounce_2");
+            Chime1 = contentManager.Load<SoundEffect>("chime_1");
+            Chime2 = contentManager.Load<SoundEffect>("chime_2");
+            GameOverTrumpets = contentManager.Load<SoundEffect>("game_over_trumpets");
+            GameOverVoice = contentManager.Load<SoundEffect>("game_over_voice");
+            LifeLoss = contentManager.Load<SoundEffect>("life_loss");
+            Victory = contentManager.Load<SoundEffect>("victory");
         }
     }
 }

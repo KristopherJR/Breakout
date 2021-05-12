@@ -67,3 +67,11 @@ D:\Documents\Programming\Personal\C#\Breakout\Breakout\obj\Debug\netcoreapp3.1\B
 D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\Score.spritefont
 D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\Score.spritefont
 D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\Score.xnb
+D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\bounce_1.xnb
+D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\bounce_2.xnb
+D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\chime_1.xnb
+D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\chime_2.xnb
+D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\game_over_trumpets.xnb
+D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\game_over_voice.xnb
+D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\life_loss.xnb
+D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\victory.xnb

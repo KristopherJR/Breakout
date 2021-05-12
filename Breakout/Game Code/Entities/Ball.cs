@@ -40,22 +40,26 @@ namespace Breakout.Game_Code.Entities
             if (this.Location.X <= 10) // Past Left
             {
                 this.Direction = new Vector2(1, this.Direction.Y);
+                this.PlayRandomCollisionSFX();
             }
 
             if (this.Location.X >= BreakoutGame.WINDOW_WIDTH - this.Texture.Width - 10) // Past Right
             {
                 this.Direction = new Vector2(-1, this.Direction.Y);
+                this.PlayRandomCollisionSFX();
             }
 
             if (this.Location.Y <= 10) // Past Top
             {
                 this.Direction = new Vector2(this.Direction.X, 1);
+                this.PlayRandomCollisionSFX();
             }
 
             if (this.Location.Y >= BreakoutGame.WINDOW_HEIGHT - this.Texture.Height - 10) // Past Bottom
             {
                 this.Direction = new Vector2(this.Direction.X, -1);
                 this.FlagLifeLost = true;
+                GameContent.LifeLoss.Play();
             }
 
             this.Velocity = Speed * Direction;
@@ -71,13 +75,17 @@ namespace Breakout.Game_Code.Entities
                 {
                     bounceDirection = this.CheckHitBoxCollision(_gameEntities[i]);
 
-                    if(bounceDirection == 1) // any collision
+
+                    if (bounceDirection == 1) // any collision
                     {
                         if (_gameEntities[i] is Brick)
                         {
                             this.Direction = new Vector2(this.Direction.X, -this.Direction.Y);
                             (_gameEntities[i] as Brick).FlagDeletion = true;
                             this.Speed += 0.15f;
+
+                            this.PlayRandomCollisionSFX();
+                            
                             break;
                         }
                     }
@@ -87,29 +95,55 @@ namespace Breakout.Game_Code.Entities
                         if (this.Direction.X == 1) // ball is heading right
                         {
                             this.Direction = new Vector2(this.Direction.X, -this.Direction.Y); // continue moving right
+                            this.PlayRandomCollisionSFX();
                             break;
                         }
                         if (this.Direction.X == -1) // ball is heading left
                         {
                             this.Direction = new Vector2(-this.Direction.X, -this.Direction.Y); // bounce back to the right
+                            this.PlayRandomCollisionSFX();
                             break;
                         }
-                        
                     }
+
                     if (bounceDirection == -1) // hit left half of paddle
                     {
                         if(this.Direction.X == 1) // ball is heading right
                         {
                             this.Direction = new Vector2(-this.Direction.X, -this.Direction.Y); // bounce back to the left
+                            this.PlayRandomCollisionSFX();
                             break;
                         }
                         if (this.Direction.X == -1) // ball is heading left
                         {
                             this.Direction = new Vector2(this.Direction.X, -this.Direction.Y); // continue moving left
+                            this.PlayRandomCollisionSFX();
                             break;
-                        }
+                        } 
                     }
                 }      
+            }
+        }
+
+        private void PlayRandomCollisionSFX()
+        {
+            Random random = new Random();
+            int randomInt = random.Next(1, 5);
+
+            switch (randomInt)
+            {
+                case 1:
+                    GameContent.Bounce1.Play();
+                    break;
+                case 2:
+                    GameContent.Bounce2.Play();
+                    break;
+                case 3:
+                    GameContent.Chime1.Play();
+                    break;
+                case 4:
+                    GameContent.Chime2.Play();
+                    break;
             }
         }
 

@@ -3,7 +3,7 @@
   <SourceFile>D:/Documents/Programming/Personal/C#/Breakout/Breakout/Content/breakout_assets/green_brick.png</SourceFile>
   <SourceTime>2021-05-10T23:12:36.096839+01:00</SourceTime>
   <DestFile>D:/Documents/Programming/Personal/C#/Breakout/Breakout/Content/bin/DesktopGL/breakout_assets/green_brick.xnb</DestFile>
-  <DestTime>2021-05-12T12:36:35.4432849+01:00</DestTime>
+  <DestTime>2021-05-12T15:15:10.0641595+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T16:35:54+00:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

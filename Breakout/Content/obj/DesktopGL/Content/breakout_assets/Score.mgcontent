@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Documents/Programming/Personal/C#/Breakout/Breakout/Content/breakout_assets/Score.spritefont</SourceFile>
-  <SourceTime>2021-05-12T12:38:54.1764117+01:00</SourceTime>
+  <SourceTime>2021-05-12T15:15:04.4152759+01:00</SourceTime>
   <DestFile>D:/Documents/Programming/Personal/C#/Breakout/Breakout/Content/bin/DesktopGL/Content/breakout_assets/Score.xnb</DestFile>
-  <DestTime>2021-05-12T12:38:57.5837951+01:00</DestTime>
+  <DestTime>2021-05-12T15:15:59.6471719+01:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+01:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

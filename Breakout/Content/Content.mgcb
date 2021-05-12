@@ -49,6 +49,42 @@
 /processorParam:TextureFormat=Color
 /build:breakout_assets/blue_brick.png
 
+#begin breakout_assets/bounce_1.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:breakout_assets/bounce_1.mp3
+
+#begin breakout_assets/bounce_2.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:breakout_assets/bounce_2.mp3
+
+#begin breakout_assets/chime_1.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:breakout_assets/chime_1.mp3
+
+#begin breakout_assets/chime_2.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:breakout_assets/chime_2.mp3
+
+#begin breakout_assets/game_over_trumpets.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:breakout_assets/game_over_trumpets.mp3
+
+#begin breakout_assets/game_over_voice.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:breakout_assets/game_over_voice.mp3
+
 #begin breakout_assets/green_brick.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -72,6 +108,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:breakout_assets/heart.png
+
+#begin breakout_assets/life_loss.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:breakout_assets/life_loss.mp3
 
 #begin breakout_assets/orange_brick.png
 /importer:TextureImporter
@@ -127,6 +169,12 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:breakout_assets/Score.spritefont
+
+#begin breakout_assets/victory.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:breakout_assets/victory.mp3
 
 #begin breakout_assets/yellow_brick.png
 /importer:TextureImporter

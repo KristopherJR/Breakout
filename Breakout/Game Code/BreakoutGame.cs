@@ -12,6 +12,13 @@ namespace Breakout.Game_Code
     public class BreakoutGame : Game
     {
         #region FIELDS
+
+        private bool _running;
+        private bool _scriptStop;
+
+        private float _idleTimer;
+        private float _speechWaitDuration;
+
         public const int WINDOW_WIDTH = 1200;
         public const int WINDOW_HEIGHT = 800;
 
@@ -38,8 +45,11 @@ namespace Breakout.Game_Code
             IsMouseVisible = true;
 
             _gameEntities = new List<IGameEntity>();
-            _lives = 5;
-
+            _lives = 2;
+            _running = true;
+            _idleTimer = 0.0f;
+            _speechWaitDuration = 4.0f;
+            _scriptStop = false;
         }
 
         protected override void Initialize()
@@ -137,45 +147,73 @@ namespace Breakout.Game_Code
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
-            for (int i = 0; i < _gameEntities.Count; i++)
+            if(_running)
             {
-                if(_gameEntities[i] is IUpdatable)
+                for (int i = 0; i < _gameEntities.Count; i++)
                 {
-                    (_gameEntities[i] as IUpdatable).Update(gameTime);
+                    if(_gameEntities[i] is IUpdatable)
+                    {
+                        (_gameEntities[i] as IUpdatable).Update(gameTime);
                     
-                }
-                if(_gameEntities[i] is Brick)
-                {
-                    if((_gameEntities[i] as Brick).FlagDeletion == true)
-                    {
-                        _score += (_gameEntities[i] as Brick).ScoreValue;
-                        _gameEntities.Remove(_gameEntities[i]);
                     }
-                }
-                if(_gameEntities[i] is Ball)
-                {
-                    if ((_gameEntities[i] as Ball).FlagLifeLost) // check if the player lost a life
+                    if(_gameEntities[i] is Brick)
                     {
-                        (_gameEntities[i] as Ball).FlagLifeLost = false; // reset flag
-
-                        for(int j=0; j < _gameEntities.Count; j++)
+                        if((_gameEntities[i] as Brick).FlagDeletion == true)
                         {
-                            if(_gameEntities[j] is Heart)
+                            _score += (_gameEntities[i] as Brick).ScoreValue;
+                            _gameEntities.Remove(_gameEntities[i]);
+                        }
+                    }
+                    if(_gameEntities[i] is Ball)
+                    {
+                        if ((_gameEntities[i] as Ball).FlagLifeLost) // check if the player lost a life
+                        {
+                            (_gameEntities[i] as Ball).FlagLifeLost = false; // reset flag
+
+                            for(int j=0; j < _gameEntities.Count; j++)
                             {
-                                if(_gameEntities[j].UName == "Heart" + _lives) // remove the top layer heart
+                                if(_gameEntities[j] is Heart)
                                 {
-                                    _gameEntities.RemoveAt(j);
-                                    _lives--;
-                                    break;
+                                    if(_gameEntities[j].UName == "Heart" + _lives) // remove the top layer heart
+                                    {
+                                        _gameEntities.RemoveAt(j);
+                                        _lives--;
+                                        break;
+                                    }
                                 }
                             }
                         }
                     }
                 }
+
+                base.Update(gameTime);
+
+                if(_lives == 0)
+                {
+                    _running = false;
+                    GameContent.GameOverTrumpets.Play();
+
+                }
+
+                
             }
 
-            base.Update(gameTime);
+            if (!_running && !_scriptStop)
+            {
+                
+
+                if (_idleTimer < _speechWaitDuration)
+                {
+                    _idleTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+
+                if (_idleTimer >= _speechWaitDuration)
+                {
+                    _scriptStop = true;
+                    GameContent.GameOverVoice.Play();
+
+                }
+            }
         }
 
         protected override void Draw(GameTime gameTime)
