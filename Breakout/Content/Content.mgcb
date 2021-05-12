@@ -121,6 +121,13 @@
 /processorParam:TextureFormat=Color
 /build:breakout_assets/red_brick.png
 
+#begin breakout_assets/Score.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:breakout_assets/Score.spritefont
+
 #begin breakout_assets/yellow_brick.png
 /importer:TextureImporter
 /processor:TextureProcessor

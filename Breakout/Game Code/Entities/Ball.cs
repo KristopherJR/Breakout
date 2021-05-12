@@ -16,7 +16,7 @@ namespace Breakout.Game_Code.Entities
         {
             this.UName = "Ball";
             this.Direction = new Vector2(1, 1);
-            this.Speed = 2;
+            this.Speed = 2.0f;
             this.Texture = GameContent.BallTexture;
             this.Location = new Vector2((BreakoutGame.WINDOW_WIDTH / 2) - this.Texture.Width / 2, 400);
         }
@@ -53,17 +53,50 @@ namespace Breakout.Game_Code.Entities
 
         private void CheckCollisions()
         {
+            int bounceDirection = 0;
+
             for(int i=0; i < _gameEntities.Count; i++)
             {
                 if(_gameEntities[i] != this)
                 {
-                    if (this.CheckHitBoxCollision(_gameEntities[i]))
+                    bounceDirection = this.CheckHitBoxCollision(_gameEntities[i]);
+
+                    if(bounceDirection == 1) // any collision
                     {
-                        this.Direction = new Vector2(this.Direction.X, -this.Direction.Y);
-                        if(_gameEntities[i] is Brick)
+                        if (_gameEntities[i] is Brick)
                         {
+                            this.Direction = new Vector2(this.Direction.X, -this.Direction.Y);
                             (_gameEntities[i] as Brick).FlagDeletion = true;
-                            _gameEntities.Remove(_gameEntities[i]);
+                            this.Speed += 0.15f;
+                            break;
+                        }
+                    }
+
+                    if (bounceDirection == 1) // hit right half of paddle
+                    {
+                        if (this.Direction.X == 1) // ball is heading right
+                        {
+                            this.Direction = new Vector2(this.Direction.X, -this.Direction.Y); // continue moving right
+                            break;
+                        }
+                        if (this.Direction.X == -1) // ball is heading left
+                        {
+                            this.Direction = new Vector2(-this.Direction.X, -this.Direction.Y); // bounce back to the right
+                            break;
+                        }
+                        
+                    }
+                    if (bounceDirection == -1) // hit left half of paddle
+                    {
+                        if(this.Direction.X == 1) // ball is heading right
+                        {
+                            this.Direction = new Vector2(-this.Direction.X, -this.Direction.Y); // bounce back to the left
+                            break;
+                        }
+                        if (this.Direction.X == -1) // ball is heading left
+                        {
+                            this.Direction = new Vector2(this.Direction.X, -this.Direction.Y); // continue moving left
+                            break;
                         }
                     }
                 }      

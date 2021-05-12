@@ -13,9 +13,11 @@
     <File>D:/Documents/Programming/Personal/C#/Breakout/Breakout/Content/breakout_assets/paddle.png</File>
     <File>D:/Documents/Programming/Personal/C#/Breakout/Breakout/Content/breakout_assets/purple_brick.png</File>
     <File>D:/Documents/Programming/Personal/C#/Breakout/Breakout/Content/breakout_assets/red_brick.png</File>
+    <File>D:/Documents/Programming/Personal/C#/Breakout/Breakout/Content/breakout_assets/Score.spritefont</File>
     <File>D:/Documents/Programming/Personal/C#/Breakout/Breakout/Content/breakout_assets/yellow_brick.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

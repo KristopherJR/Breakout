@@ -18,6 +18,8 @@ namespace Breakout.Game_Code
         public const int BRICK_ROWS = 6;
         public const int BRICK_COLUMNS = 10;
 
+        private int _score;
+
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
@@ -35,6 +37,7 @@ namespace Breakout.Game_Code
             IsMouseVisible = true;
 
             _gameEntities = new List<IGameEntity>(); 
+           
         }
 
         protected override void Initialize()
@@ -43,6 +46,8 @@ namespace Breakout.Game_Code
             _graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
             _graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
             _graphics.ApplyChanges();
+
+            _score = 0;
         }
 
         protected override void LoadContent()
@@ -104,7 +109,7 @@ namespace Breakout.Game_Code
                 {
                     g.UID = brickCount;
                     g.UName += brickCount;
-                    System.Diagnostics.Debug.WriteLine(g.UName);
+                    //System.Diagnostics.Debug.WriteLine(g.UName);
                     brickCount++;
                 }
             }
@@ -126,7 +131,10 @@ namespace Breakout.Game_Code
                 {
                     if((_gameEntities[i] as Brick).FlagDeletion == true)
                     {
+                        _score += (_gameEntities[i] as Brick).ScoreValue;
                         _gameEntities.Remove(_gameEntities[i]);
+
+                        
                     }
                 }
             }
@@ -140,6 +148,7 @@ namespace Breakout.Game_Code
             _spriteBatch.Begin();
 
             _spriteBatch.Draw(GameContent.BackgroundTexture, new Rectangle(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT), Color.White);
+            _spriteBatch.DrawString(GameContent.GameFont, _score.ToString(), new Vector2(119, 24), Color.White);
 
             foreach (IGameEntity g in _gameEntities)
             {

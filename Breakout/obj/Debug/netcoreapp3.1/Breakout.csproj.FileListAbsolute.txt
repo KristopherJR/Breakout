@@ -64,3 +64,6 @@ D:\Documents\Programming\Personal\C#\Breakout\Breakout\obj\Debug\netcoreapp3.1\B
 D:\Documents\Programming\Personal\C#\Breakout\Breakout\obj\Debug\netcoreapp3.1\Breakout.dll
 D:\Documents\Programming\Personal\C#\Breakout\Breakout\obj\Debug\netcoreapp3.1\Breakout.pdb
 D:\Documents\Programming\Personal\C#\Breakout\Breakout\obj\Debug\netcoreapp3.1\Breakout.genruntimeconfig.cache
+D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\Score.spritefont
+D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\Score.spritefont
+D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\Score.xnb

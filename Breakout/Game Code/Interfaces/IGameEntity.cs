@@ -17,7 +17,7 @@ namespace Breakout.Game_Code.Interfaces
         public Vector2 Location { get; set; }
         public Vector2 Velocity { get; set; }
         public Vector2 Direction { get; set; }
-        public int Speed { get; set; }
+        public float Speed { get; set; }
         public Rectangle HitBox { get; }
         
         #endregion
@@ -33,8 +33,8 @@ namespace Breakout.Game_Code.Interfaces
         /// Checks if the current GameEntity has collided with the collidee provided.
         /// </summary>
         /// <param name="collidee">The other GameEntity to check a collision with.</param>
-        /// <returns>True if there's a collision, else false.</returns>
-        bool CheckHitBoxCollision(IGameEntity collidee);
+        /// <returns>-1 = collision on left half of Paddle. 0 = no collision. 1 = collision on right half of paddle.</returns>
+        int CheckHitBoxCollision(IGameEntity collidee);
         #endregion
     }
 }

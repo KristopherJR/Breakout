@@ -18,7 +18,7 @@ namespace Breakout.Game_Code.Entities
         private Vector2 _location;
         private Vector2 _velocity;
         private Vector2 _direction;
-        private int _speed;
+        private float _speed;
         #endregion
 
         #region PROPERTIES
@@ -28,7 +28,7 @@ namespace Breakout.Game_Code.Entities
         public Vector2 Location { get => _location; set => _location = value; }
         public Vector2 Velocity { get => _velocity; set => _velocity = value; }
         public Vector2 Direction { get => _direction; set => _direction = value; }
-        public int Speed { get => _speed; set => _speed = value; }
+        public float Speed { get => _speed; set => _speed = value; }
 
         public Rectangle HitBox
         {
@@ -40,19 +40,36 @@ namespace Breakout.Game_Code.Entities
 
         #endregion
         /// <summary>
-        /// Checks if the current IGameEntity has collided with the collidee provided.
+        /// Checks if the current GameEntity has collided with the collidee provided.
         /// </summary>
-        /// <param name="collidee">The other IGameEntity to check a collision with.</param>
-        /// <returns>True if there's a collision, else false.</returns>
-        public bool CheckHitBoxCollision(IGameEntity collidee)
+        /// <param name="collidee">The other GameEntity to check a collision with.</param>
+        /// <returns>-1 = collision on left half of Paddle. 0 = no collision. 1 = collision on right half of paddle.</returns>
+        public int CheckHitBoxCollision(IGameEntity collidee)
         {
-            if(this.HitBox.Intersects(collidee.HitBox))
+            if(collidee is Paddle)
             {
-                return true;
+                if (this.HitBox.Intersects(collidee.HitBox))
+                {
+                    if (this.Location.X >= collidee.Location.X && this.Location.X < collidee.Location.X + collidee.Texture.Width / 2) //left half of the paddle
+                    {
+                        System.Diagnostics.Debug.WriteLine("Left Half of Paddle");
+                        return -1; // Collision occured on left half of paddle, Invert direction
+
+                    }
+                    else
+                    {
+                        System.Diagnostics.Debug.WriteLine("Right Half of Paddle");
+                        return 1; // Collision occured on right half of paddle, don't invert direction
+                    }
+                }
+            }
+            if (this.HitBox.Intersects(collidee.HitBox))
+            {
+                return 1; // Collision occured, Invert direction
             }
             else
             {
-                return false;
+                return 0; // no collision
             }
         }
 

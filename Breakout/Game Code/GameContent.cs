@@ -20,6 +20,8 @@ namespace Breakout.GameCode
         public static Texture2D BlueBrickTexture;
         public static Texture2D PurpleBrickTexture;
 
+        public static SpriteFont GameFont;
+
         #endregion
         public static void LoadContent(ContentManager contentManager)
         {
@@ -33,6 +35,8 @@ namespace Breakout.GameCode
             GreenBrickTexture = contentManager.Load<Texture2D>("green_brick");
             BlueBrickTexture = contentManager.Load<Texture2D>("blue_brick");
             PurpleBrickTexture = contentManager.Load<Texture2D>("purple_brick");
+
+            GameFont = contentManager.Load<SpriteFont>("Score");
         }
     }
 }
