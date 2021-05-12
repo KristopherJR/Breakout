@@ -16,7 +16,7 @@ namespace Breakout.Game_Code.Entities
         {
             this.UName = "Ball";
             this.Direction = new Vector2(1, 1);
-            this.Speed = 3;
+            this.Speed = 2;
             this.Texture = GameContent.BallTexture;
             this.Location = new Vector2((BreakoutGame.WINDOW_WIDTH / 2) - this.Texture.Width / 2, 400);
         }

@@ -55,41 +55,58 @@ namespace Breakout.Game_Code
             _gameEntities.Add(_paddle);
             _gameEntities.Add(_ball);
 
-            //for(int i=0; i<BRICK_COLUMNS; i++)
-            //{
-            //    for(int j=0; j<BRICK_ROWS; j++)
-            //    {
-
-            //    }
-            //}
+            for (int i = 0; i < BRICK_COLUMNS; i++)
+            {
+                for (int j = 0; j < BRICK_ROWS; j++)
+                {
+                    IGameEntity newBrick = new Brick();
+                    newBrick.Location = new Vector2(15+((GameContent.RedBrickTexture.Width+10)*i),
+                                                    86+(GameContent.RedBrickTexture.Height+10)*j);
+                    _gameEntities.Add(newBrick);
+                }
+            }
 
             _ball.PopulateCollidables(_gameEntities);
 
-            SetIDs();
+            this.SetIDs();
+
+            foreach(IGameEntity g in _gameEntities)
+            {
+                if(g is Brick)
+                {   
+                    (g as Brick).SetTexture();
+                }
+            }
         }
 
         private void SetIDs()
         {
-            foreach (Ball b in _gameEntities)
+            int ballCount = 1;
+            int paddleCount = 1;
+            int brickCount = 1;
+
+            foreach (IGameEntity g in _gameEntities)
             {
-                int temp = 1;
-                b.UID = temp;
-                b.UName += temp;
-                temp++;
-            }
-            foreach (Paddle p in _gameEntities)
-            {
-                int temp = 1;
-                p.UID = temp;
-                p.UName += temp;
-                temp++;
-            }
-            foreach (Brick b in _gameEntities)
-            {
-                int temp = 1;
-                b.UID = temp;
-                b.UName += temp;
-                temp++;
+                if (g is Ball)
+                {
+                    g.UID = ballCount;
+                    g.UName += ballCount;
+                    ballCount++;
+                }
+                if (g is Paddle)
+                {
+                    g.UID = paddleCount;
+                    g.UName += paddleCount;
+                    paddleCount++;
+                }
+
+                if (g is Brick)
+                {
+                    g.UID = brickCount;
+                    g.UName += brickCount;
+                    System.Diagnostics.Debug.WriteLine(g.UName);
+                    brickCount++;
+                }
             }
         }
 
@@ -98,9 +115,12 @@ namespace Breakout.Game_Code
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            foreach (IUpdatable u in _gameEntities)
+            foreach (IGameEntity u in _gameEntities)
             {
-                u.Update(gameTime);
+                if(u is IUpdatable)
+                {
+                    (u as IUpdatable).Update(gameTime);
+                }
             }
 
             base.Update(gameTime);

@@ -10,7 +10,6 @@ namespace Breakout.Game_Code.Entities
         public Brick()
         {
             this.UName = "Brick";
-            
         }
 
         public void SetTexture()
@@ -23,7 +22,22 @@ namespace Breakout.Game_Code.Entities
             {
                 this.Texture = GameContent.OrangeBrickTexture;
             }
-
+            if (this.UID > 20 && this.UID <= 30)
+            {
+                this.Texture = GameContent.YellowBrickTexture;
+            }
+            if (this.UID > 30 && this.UID <= 40)
+            {
+                this.Texture = GameContent.GreenBrickTexture;
+            }
+            if (this.UID > 40 && this.UID <= 50)
+            {
+                this.Texture = GameContent.BlueBrickTexture;
+            }
+            if (this.UID > 50 && this.UID <= 60)
+            {
+                this.Texture = GameContent.PurpleBrickTexture;
+            }
         }
     }
 }
