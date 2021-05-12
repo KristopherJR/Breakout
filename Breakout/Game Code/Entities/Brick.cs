@@ -29,6 +29,7 @@ namespace Breakout.Game_Code.Entities
         {
             this.UName = "Brick";
             _flagDeletion = false;
+            this.IsCollidable = true;
         }
 
         public void SetTexture()

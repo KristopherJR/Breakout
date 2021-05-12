@@ -28,6 +28,7 @@ namespace Breakout.Game_Code.Entities
             this.Texture = GameContent.BallTexture;
             this.Location = new Vector2((BreakoutGame.WINDOW_WIDTH / 2) - this.Texture.Width / 2, 400);
             this.FlagLifeLost = false;
+            this.IsCollidable = true;
         }
 
         public void PopulateCollidables(List<IGameEntity> gameEntities)
@@ -73,53 +74,58 @@ namespace Breakout.Game_Code.Entities
             {
                 if(_gameEntities[i] != this)
                 {
-                    bounceDirection = this.CheckHitBoxCollision(_gameEntities[i]);
-
-
-                    if (bounceDirection == 1) // any collision
+                    if(_gameEntities[i].IsCollidable)
                     {
-                        if (_gameEntities[i] is Brick)
-                        {
-                            this.Direction = new Vector2(this.Direction.X, -this.Direction.Y);
-                            (_gameEntities[i] as Brick).FlagDeletion = true;
-                            this.Speed += 0.15f;
+                        bounceDirection = this.CheckHitBoxCollision(_gameEntities[i]);
 
-                            this.PlayRandomCollisionSFX();
+
+                        if (bounceDirection == 1) // Brick collision
+                        {
+                            if (_gameEntities[i] is Brick)
+                            {
+                                this.Direction = new Vector2(this.Direction.X, -this.Direction.Y);
+                                (_gameEntities[i] as Brick).FlagDeletion = true;
+                                this.Speed += 0.175f;
+
+                                this.PlayRandomCollisionSFX();
                             
-                            break;
+                                break;
+                            }
                         }
-                    }
 
-                    if (bounceDirection == 1) // hit right half of paddle
-                    {
-                        if (this.Direction.X == 1) // ball is heading right
+                        if (bounceDirection == 1) // hit right half of paddle
                         {
-                            this.Direction = new Vector2(this.Direction.X, -this.Direction.Y); // continue moving right
-                            this.PlayRandomCollisionSFX();
-                            break;
+                            if (this.Direction.X > 0) // ball is heading right
+                            {
+                                
+                                this.Direction = new Vector2(this.Direction.X, -this.Direction.Y); // continue moving right
+        
+                                this.PlayRandomCollisionSFX();
+                                break;
+                            }
+                            if (this.Direction.X < 0) // ball is heading left
+                            {
+                                this.Direction = new Vector2(-this.Direction.X, -this.Direction.Y); // bounce back to the right
+                                this.PlayRandomCollisionSFX();
+                                break;
+                            }
                         }
-                        if (this.Direction.X == -1) // ball is heading left
-                        {
-                            this.Direction = new Vector2(-this.Direction.X, -this.Direction.Y); // bounce back to the right
-                            this.PlayRandomCollisionSFX();
-                            break;
-                        }
-                    }
 
-                    if (bounceDirection == -1) // hit left half of paddle
-                    {
-                        if(this.Direction.X == 1) // ball is heading right
+                        if (bounceDirection == -1) // hit left half of paddle
                         {
-                            this.Direction = new Vector2(-this.Direction.X, -this.Direction.Y); // bounce back to the left
-                            this.PlayRandomCollisionSFX();
-                            break;
+                            if (this.Direction.X > 0) // ball is heading right
+                            {
+                                this.Direction = new Vector2(-this.Direction.X, -this.Direction.Y); // bounce back to the left
+                                this.PlayRandomCollisionSFX();
+                                break;
+                            }
+                            if (this.Direction.X < 0) // ball is heading left
+                            {
+                                this.Direction = new Vector2(this.Direction.X, -this.Direction.Y); // continue moving left
+                                this.PlayRandomCollisionSFX();
+                                break;
+                            } 
                         }
-                        if (this.Direction.X == -1) // ball is heading left
-                        {
-                            this.Direction = new Vector2(this.Direction.X, -this.Direction.Y); // continue moving left
-                            this.PlayRandomCollisionSFX();
-                            break;
-                        } 
                     }
                 }      
             }

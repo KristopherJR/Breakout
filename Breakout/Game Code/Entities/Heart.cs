@@ -12,6 +12,7 @@ namespace Breakout.Game_Code.Entities
         {
             this.UName = "Heart";
             this.Texture = GameContent.HeartTexture;
+            this.IsCollidable = false;
         }
     }
 }

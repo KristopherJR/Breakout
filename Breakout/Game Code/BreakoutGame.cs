@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Breakout.Game_Code
 {
@@ -45,7 +46,8 @@ namespace Breakout.Game_Code
             IsMouseVisible = true;
 
             _gameEntities = new List<IGameEntity>();
-            _lives = 2;
+            _lives = 5;
+            _score = 0;
             _running = true;
             _idleTimer = 0.0f;
             _speechWaitDuration = 4.0f;
@@ -57,11 +59,7 @@ namespace Breakout.Game_Code
             base.Initialize();
             _graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
             _graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
-            _graphics.ApplyChanges();
-
-
-            _score = 0;
-            
+            _graphics.ApplyChanges(); 
         }
 
         protected override void LoadContent()
@@ -149,6 +147,11 @@ namespace Breakout.Game_Code
                 Exit();
             if(_running)
             {
+                if(!_gameEntities.OfType<Brick>().Any())
+                {
+                    GameContent.Victory.Play();
+                    _running = false;
+                }
                 for (int i = 0; i < _gameEntities.Count; i++)
                 {
                     if(_gameEntities[i] is IUpdatable)

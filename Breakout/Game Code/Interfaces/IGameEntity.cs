@@ -19,7 +19,8 @@ namespace Breakout.Game_Code.Interfaces
         public Vector2 Direction { get; set; }
         public float Speed { get; set; }
         public Rectangle HitBox { get; }
-        
+        public bool IsCollidable { get; set; }
+
         #endregion
 
         #region METHODS

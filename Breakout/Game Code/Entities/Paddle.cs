@@ -18,6 +18,7 @@ namespace Breakout.Game_Code.Entities
             this.Speed = 5;
             this.Texture = GameContent.PaddleTexture;
             this.Location = new Vector2((BreakoutGame.WINDOW_WIDTH/2)-this.Texture.Width/2, 725);
+            this.IsCollidable = true;
         }
 
         private void CalculateVelocity()

@@ -19,6 +19,8 @@ namespace Breakout.Game_Code.Entities
         private Vector2 _velocity;
         private Vector2 _direction;
         private float _speed;
+
+        private bool _isCollidable;
         #endregion
 
         #region PROPERTIES
@@ -29,6 +31,7 @@ namespace Breakout.Game_Code.Entities
         public Vector2 Velocity { get => _velocity; set => _velocity = value; }
         public Vector2 Direction { get => _direction; set => _direction = value; }
         public float Speed { get => _speed; set => _speed = value; }
+        public bool IsCollidable { get => _isCollidable; set => _isCollidable = value; }
 
         public Rectangle HitBox
         {
