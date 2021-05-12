@@ -53,13 +53,18 @@ namespace Breakout.Game_Code.Entities
 
         private void CheckCollisions()
         {
-            foreach(IGameEntity g in _gameEntities)
+            for(int i=0; i < _gameEntities.Count; i++)
             {
-                if(g != this)
+                if(_gameEntities[i] != this)
                 {
-                    if (this.CheckHitBoxCollision(g))
+                    if (this.CheckHitBoxCollision(_gameEntities[i]))
                     {
                         this.Direction = new Vector2(this.Direction.X, -this.Direction.Y);
+                        if(_gameEntities[i] is Brick)
+                        {
+                            (_gameEntities[i] as Brick).FlagDeletion = true;
+                            _gameEntities.Remove(_gameEntities[i]);
+                        }
                     }
                 }      
             }

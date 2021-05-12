@@ -5,11 +5,21 @@ using System.Text;
 
 namespace Breakout.Game_Code.Entities
 {
+
     public class Brick : GameEntity
     {
+        private bool _flagDeletion;
+
+        public bool FlagDeletion
+        {
+            get { return _flagDeletion;}
+            set { _flagDeletion = value; }
+        }
+
         public Brick()
         {
             this.UName = "Brick";
+            _flagDeletion = false;
         }
 
         public void SetTexture()

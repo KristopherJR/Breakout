@@ -115,11 +115,19 @@ namespace Breakout.Game_Code
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            foreach (IGameEntity u in _gameEntities)
+            for (int i = 0; i < _gameEntities.Count; i++)
             {
-                if(u is IUpdatable)
+                if(_gameEntities[i] is IUpdatable)
                 {
-                    (u as IUpdatable).Update(gameTime);
+                    (_gameEntities[i] as IUpdatable).Update(gameTime);
+                    
+                }
+                if(_gameEntities[i] is Brick)
+                {
+                    if((_gameEntities[i] as Brick).FlagDeletion == true)
+                    {
+                        _gameEntities.Remove(_gameEntities[i]);
+                    }
                 }
             }
 
