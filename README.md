@@ -5,6 +5,8 @@ Written in C# using the Monogame Framework.
 
 Author: Kristopher John Randle
 
+Download the latest release <a href="https://github.com/KristopherJR/Breakout/releases/latest">Here</a>
+
 ![breakout_thumbnail](https://user-images.githubusercontent.com/47984645/117983027-7c49a200-b32e-11eb-9d93-19d22d9b8d7a.png)
 
 <h1>How to Play</h1>
