@@ -43,6 +43,9 @@ namespace Breakout.Game_Code
 
         #endregion FIELDS
 
+        /// <summary>
+        /// Constructor for BreakoutGame
+        /// </summary>
         public BreakoutGame()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -61,6 +64,9 @@ namespace Breakout.Game_Code
             _scriptStop = false;
         }
 
+        /// <summary>
+        /// Initialises all game content.
+        /// </summary>
         protected override void Initialize()
         {
             base.Initialize();
@@ -69,6 +75,9 @@ namespace Breakout.Game_Code
             _graphics.ApplyChanges();
         }
 
+        /// <summary>
+        /// Loads all game content.
+        /// </summary>
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -155,6 +164,10 @@ namespace Breakout.Game_Code
             }
         }
 
+        /// <summary>
+        /// Update method for BreakoutGame.
+        /// </summary>
+        /// <param name="gameTime">A snapshot of the GameTime.</param>
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
@@ -253,6 +266,10 @@ namespace Breakout.Game_Code
             }
         }
 
+        /// <summary>
+        /// Draws all objects onto the screen.
+        /// </summary>
+        /// <param name="gameTime">A snapshot of the GameTime.</param>
         protected override void Draw(GameTime gameTime)
         {
             _spriteBatch.Begin();
