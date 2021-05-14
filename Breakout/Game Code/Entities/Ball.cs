@@ -153,7 +153,7 @@ namespace Breakout.Game_Code.Entities
                 this.FlagLifeLost = true;
                 GameContent.LifeLoss.Play();
 
-                this.Location = new Vector2(600, 400);
+                this.Location = new Vector2(600 - this.Texture.Width/2, 400);
                 this.Velocity = Speed * Direction;
             }
         }
