@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "3b/8dtmfU0zsOcI6idtBJdNRns2++EvW2CQ6horUCGgEJ5/fZEvUs4iWp/fiOazXt86jYJztZ7BiMpVv9ksIpg==",
+  "dgSpecHash": "wNqetIgQmgNZSbFS2FBNFCeDSgqxk1EkgmyGxvKrqN3A34TeotWsNzwB0TS1H2/haZMPKoA/rQuQ0qOnvw6e3w==",
   "success": true,
   "projectFilePath": "D:\\Documents\\Programming\\Personal\\C#\\Breakout\\Breakout\\Breakout.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\krist\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
-    "C:\\Users\\krist\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
+    "C:\\Users\\krist\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512",
+    "C:\\Users\\krist\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\3.1.11\\microsoft.netcore.app.runtime.win-x64.3.1.11.nupkg.sha512",
+    "C:\\Users\\krist\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\3.1.11\\microsoft.windowsdesktop.app.runtime.win-x64.3.1.11.nupkg.sha512",
+    "C:\\Users\\krist\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\3.1.11\\microsoft.aspnetcore.app.runtime.win-x64.3.1.11.nupkg.sha512"
   ],
   "logs": []
 }
