@@ -1,15 +1,13 @@
 ﻿using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Breakout.GameCode
 {
     public static class GameContent
     {
         #region FIELDS
+
         public static Texture2D BackgroundTexture;
         public static Texture2D PaddleTexture;
         public static Texture2D BallTexture;
@@ -23,7 +21,8 @@ namespace Breakout.GameCode
 
         public static Texture2D HeartTexture;
 
-        public static SpriteFont GameFont;
+        public static SpriteFont GameFont26;
+        public static SpriteFont GameFont48;
 
         public static SoundEffect Bounce1;
         public static SoundEffect Bounce2;
@@ -34,7 +33,8 @@ namespace Breakout.GameCode
         public static SoundEffect LifeLoss;
         public static SoundEffect Victory;
 
-        #endregion
+        #endregion FIELDS
+
         public static void LoadContent(ContentManager contentManager)
         {
             BackgroundTexture = contentManager.Load<Texture2D>("background");
@@ -50,7 +50,8 @@ namespace Breakout.GameCode
 
             HeartTexture = contentManager.Load<Texture2D>("heart");
 
-            GameFont = contentManager.Load<SpriteFont>("Score");
+            GameFont26 = contentManager.Load<SpriteFont>("game_font26");
+            GameFont48 = contentManager.Load<SpriteFont>("game_font48");
 
             Bounce1 = contentManager.Load<SoundEffect>("bounce_1");
             Bounce2 = contentManager.Load<SoundEffect>("bounce_2");

@@ -75,3 +75,7 @@ D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\C
 D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\game_over_voice.xnb
 D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\life_loss.xnb
 D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\victory.xnb
+D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\GameOver48.xnb
+D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\game_font26.xnb
+D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\game_font48.xnb
+D:\Documents\Programming\Personal\C#\Breakout\Breakout\bin\Debug\netcoreapp3.1\Content\breakout_assets\Score26.xnb

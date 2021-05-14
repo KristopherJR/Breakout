@@ -1,30 +1,32 @@
 ﻿using Breakout.GameCode;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Breakout.Game_Code.Entities
 {
-
     public class Brick : GameEntity
     {
         #region FIELDS
+
         private bool _flagDeletion;
         private int _scoreValue;
-        #endregion
+
+        #endregion FIELDS
 
         #region PROPERTIES
+
         public bool FlagDeletion
         {
-            get { return _flagDeletion;}
+            get { return _flagDeletion; }
             set { _flagDeletion = value; }
         }
+
         public int ScoreValue
         {
             get { return _scoreValue; }
             set { _scoreValue = value; }
         }
-        #endregion
+
+        #endregion PROPERTIES
+
         public Brick()
         {
             this.UName = "Brick";
@@ -32,9 +34,12 @@ namespace Breakout.Game_Code.Entities
             this.IsCollidable = true;
         }
 
+        /// <summary>
+        /// Gives each Brick a different colour depending on it's ID number. Different coloured bricks also offer different score values.
+        /// </summary>
         public void SetTexture()
         {
-            if(this.UID <= 10)
+            if (this.UID <= 10)
             {
                 this.Texture = GameContent.RedBrickTexture;
                 this.ScoreValue = 10;

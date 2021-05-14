@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>D:/Documents/Programming/Personal/C#/Breakout/Breakout/Content/breakout_assets/game_font26.spritefont</SourceFile>
+  <SourceTime>2021-05-14T02:25:58.7231976+01:00</SourceTime>
+  <DestFile>D:/Documents/Programming/Personal/C#/Breakout/Breakout/Content/bin/DesktopGL/Content/breakout_assets/game_font26.xnb</DestFile>
+  <DestTime>2021-05-14T02:26:01.8647181+01:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2020-08-10T16:17:54+01:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2020-08-10T16:17:54+01:00</ProcessorTime>
+  <Parameters>
+    <Key>PremultiplyAlpha</Key>
+    <Value>True</Value>
+  </Parameters>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Compressed</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

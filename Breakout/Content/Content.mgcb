@@ -73,6 +73,20 @@
 /processorParam:Quality=Best
 /build:breakout_assets/chime_2.mp3
 
+#begin breakout_assets/game_font26.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:breakout_assets/game_font26.spritefont
+
+#begin breakout_assets/game_font48.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:breakout_assets/game_font48.spritefont
+
 #begin breakout_assets/game_over_trumpets.mp3
 /importer:Mp3Importer
 /processor:SoundEffectProcessor
@@ -162,13 +176,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:breakout_assets/red_brick.png
-
-#begin breakout_assets/Score.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:PremultiplyAlpha=True
-/processorParam:TextureFormat=Compressed
-/build:breakout_assets/Score.spritefont
 
 #begin breakout_assets/victory.mp3
 /importer:Mp3Importer
